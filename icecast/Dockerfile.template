@@ -1,0 +1,6 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine:3.12-run
+
+RUN addgroup -S icecast && adduser -S icecast
+RUN install_packages icecast 
+
+CMD [ "/usr/bin/icecast", "-c", "/etc/icecast.xml" ]

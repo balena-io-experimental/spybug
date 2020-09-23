@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  audio:
+    build: ./audio
+    privileged: true
+    labels:
+      io.balena.features.dbus: 1
+    ports:
+      - 4317:4317
+
+  ffmpeg:
+    build: ./ffmpeg
+  
+  icecast:
+    build: ./icecast
+    ports:
+      - 8000:8000

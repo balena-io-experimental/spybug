@@ -1,0 +1,9 @@
+# Create input sink, we'll use this to receive input from our mic
+load-module module-null-sink sink_name=spybug
+
+# Route sink to default hardware sink (audio output)
+# Not needed since we won't be using device hardware, but good for troubleshooting
+load-module module-loopback source="spybug.monitor"
+
+# Change default sink
+set-default-sink spybug
