@@ -17,3 +17,13 @@ services:
     build: ./icecast
     ports:
       - 8000:8000
+  
+  website:
+    build: ./website
+    ports:
+      - 8080:8080
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
