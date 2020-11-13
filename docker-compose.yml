@@ -32,13 +32,8 @@ services:
     volumes:
       - snapcast:/var/cache/snapcast
 
-  website:
-    build: ./website
-    ports:
-      - 8080:8080
-
-  nginx:
-    build: ./nginx
+  webserver:
+    build: ./webserver
     ports:
       - 80:80
 
