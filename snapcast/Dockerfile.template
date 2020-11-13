@@ -4,5 +4,6 @@ WORKDIR /usr/src
 
 RUN install_packages snapcast-server
 COPY snapserver.conf /etc/snapserver.conf
+COPY start.sh .
 
-CMD [ "snapserver"]
+CMD [ "/bin/bash", "/usr/src/start.sh" ]
