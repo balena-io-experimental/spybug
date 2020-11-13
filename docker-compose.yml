@@ -1,5 +1,8 @@
 version: '2'
 
+volumes:
+  snapcast:
+
 services:
 
   audio:
@@ -9,6 +12,8 @@ services:
       io.balena.features.dbus: 1
     ports:
       - 4317:4317
+    volumes:
+      - snapcast:/var/cache/snapcast
 
   ffmpeg:
     build: ./ffmpeg
@@ -17,7 +22,16 @@ services:
     build: ./icecast
     ports:
       - 8000:8000
-  
+
+  snapcast:
+    build: ./snapcast
+    ports:
+      - 1704:1704
+      - 1705:1705
+      - 1780:1780
+    volumes:
+      - snapcast:/var/cache/snapcast
+
   website:
     build: ./website
     ports:
@@ -27,3 +41,4 @@ services:
     build: ./nginx
     ports:
       - 80:80
+
