@@ -15,25 +15,17 @@ services:
     volumes:
       - snapcast:/var/cache/snapcast
 
-  ffmpeg:
-    build: ./ffmpeg
-  
+  darkice:
+    build: ./darkice
+
   icecast:
     build: ./icecast
     ports:
-      - 8000:8000
+      - 80:8000
 
   snapcast:
     build: ./snapcast
     ports:
       - 1704:1704
-      - 1705:1705
-      - 1780:1780
     volumes:
       - snapcast:/var/cache/snapcast
-
-  webserver:
-    build: ./webserver
-    ports:
-      - 80:80
-

@@ -1,0 +1,12 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:buster-run
+WORKDIR /usr/src
+
+# audiobloc: setup alsa bridge to pulseaudio
+ENV PULSE_SERVER tcp:audio:4317
+RUN curl --silent https://raw.githubusercontent.com/balenablocks/audio/master/scripts/alsa-bridge/debian-setup.sh| sh
+
+# Install dependencies
+RUN install_packages darkice netcat
+COPY . .
+
+CMD [ "/bin/bash", "/usr/src/start.sh" ]
