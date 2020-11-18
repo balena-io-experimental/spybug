@@ -15,17 +15,22 @@ services:
     volumes:
       - snapcast:/var/cache/snapcast
 
-  darkice:
-    build: ./darkice
-
   icecast:
     build: ./icecast
     ports:
       - 80:8000
 
+  darkice:
+    build: ./darkice
+    depends_on: 
+      - audio
+      - icecast
+
   snapcast:
     build: ./snapcast
     ports:
       - 1704:1704
+    depends_on: 
+      - audio
     volumes:
       - snapcast:/var/cache/snapcast
