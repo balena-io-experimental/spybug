@@ -1,3 +1,3 @@
-# SpyBug
+# baby-monitor
 
-Build your own eavesdropping device!
+A DIY baby monitor built using [kerberos.io]() for video and [audio block]() for audio streaming.
