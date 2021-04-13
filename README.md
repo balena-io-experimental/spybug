@@ -1,3 +1,3 @@
-# baby-monitor
+# spybug
 
-A DIY baby monitor built using [kerberos.io]() for video and [audio block]() for audio streaming.
+This project uses the audio block, darkice and icecast to create an audio streaming device.

@@ -10,10 +10,5 @@ load-module module-loopback source="spybug.monitor"
 # We don't specify source so it picks up the default
 load-module module-loopback sink="spybug"
 
-# Create snapcast sink. This routes audio from the mic into snapcast. 
-# This is required to stream the audio over to a snapcast player such as balenaSound.
-load-module module-pipe-sink file=/var/cache/snapcast/snapfifo sink_name=snapcast format=s16le rate=44100
-load-module module-loopback source="spybug.monitor" sink="snapcast"
-
 # Change default sink
 set-default-sink spybug
