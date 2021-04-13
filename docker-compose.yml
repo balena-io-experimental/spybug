@@ -14,6 +14,6 @@ services:
     build: ./icecast
     ports:
       - 8080:8000
-
+  
   darkice:
     build: ./darkice
